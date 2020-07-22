@@ -5,18 +5,14 @@
     <title>Game of Life</title>
 </head>
 <body>
-<div class="row">
-    <div class="box w-box"></div>
-    <div class="box b-box"></div>
-</div>
-<div class="row">
-    <div class="box w-box"></div>
-    <div class="box b-box"></div>
+<div class="row" id="box-wrap">
 </div>
 </body>
 <style>
     .row{
         display: flex;
+        width: 40px;
+        flex-wrap: wrap;
     }
     .box{
         height: 10px;
@@ -32,6 +28,18 @@
     lifeGame.push([1,0,0]);
     lifeGame.push([0,1,0]);
     lifeGame.push([0,0,1]);
-    console.log(lifeGame);
+
+    var gameOfLine = "";
+
+    for(let i = 0; i < 3; i++){
+        for(let j = 0; j < 3; j++){
+            if(lifeGame[i][j] == 0){
+                gameOfLine+= '<div class="box w-box"></div>';
+            } else {
+                gameOfLine+= '<div class="box b-box"></div>';
+            }
+        }
+    }
+    document.getElementById('box-wrap').innerHTML = gameOfLine;
 </script>
 </html>
