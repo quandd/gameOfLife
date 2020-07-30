@@ -63,10 +63,10 @@
     function myNeighbor(oldLife, i, j) {
         let numberOfNeighbor = 0;
         let len = 9;
-        let topAxis = i === 0 ? len : i;
-        let botAxis = i === len ? 0 : i;
-        let leftAxis = j === 0 ? len : j;
-        let rightAxis = j=== len ? 0 : j;
+        let topAxis = i === 0 ? len : i - 1;
+        let botAxis = i === len ? 0 : i + 1;
+        let leftAxis = j === 0 ? len : j - 1;
+        let rightAxis = j=== len ? 0 : j + 1;
 
         numberOfNeighbor
             = oldLife[topAxis][leftAxis] + oldLife[topAxis][j] + oldLife[topAxis][rightAxis]
@@ -74,6 +74,14 @@
             + oldLife[botAxis][leftAxis] + oldLife[botAxis][j] + oldLife[botAxis][rightAxis];
 
         return numberOfNeighbor;
+    }
+
+    function isDeath(me) {
+        return me === DEATH;
+    }
+
+    function isLive(me) {
+        return me === LIVE;
     }
 
     function drawTheGame() {
