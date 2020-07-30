@@ -31,31 +31,34 @@
     const LIVE = 1;
     const DEATH = 0;
 
-    var lifeGame = [];
-    var newLifeGame = [];
-    lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 0, 0, 1, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 1, 0, 1, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 0, 1, 1, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-    newLifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    function setUpLifeData() {
+        var lifeGame = [];
+        lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 0, 0, 1, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 1, 0, 1, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 0, 1, 1, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+        return lifeGame;
+    }
 
-
-    var gameOfLine = "";
+    function drawLife(life) {
+        var gameOfLine = "";
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                if (lifeGame[i][j] == 0) {
+                    gameOfLine += DEATH_CELL;
+                } else {
+                    gameOfLine += LIVE_CELL;
+                }
+            }
+        }
+        return gameOfLine;
+    }
 
     function drawTheGame() {
         for (let i = 0; i < 10; i++) {
