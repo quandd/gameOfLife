@@ -26,6 +26,8 @@
     }
 </style>
 <script>
+    const DEATH_CELL = '<div class="box w-box"></div>';
+    const LIVE_CELL = '<div class="box b-box"></div>';
     var lifeGame = [];
     var newLifeGame = [];
     lifeGame.push([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -56,9 +58,9 @@
         for (let i = 0; i < 10; i++) {
             for (let j = 0; j < 10; j++) {
                 if (lifeGame[i][j] == 0) {
-                    gameOfLine += '<div class="box w-box"></div>';
+                    gameOfLine += DEATH_CELL;
                 } else {
-                    gameOfLine += '<div class="box b-box"></div>';
+                    gameOfLine += LIVE_CELL;
                 }
 
                 if (i - 1 < 0) {
