@@ -60,6 +60,22 @@
         return gameOfLine;
     }
 
+    function myNeighbor(oldLife, i, j) {
+        let numborOfNeighbor = 0;
+        let len = 9;
+        let topAxis = i === 0 ? len : i;
+        let botAxis = i === len ? 0 : i;
+        let leftAxis = j === 0 ? len : j;
+        let rightAxis = j=== len ? 0 : j;
+
+        numborOfNeighbor
+            = oldLife[topAxis][leftAxis] + oldLife[topAxis][j] + oldLife[topAxis][rightAxis]
+            + oldLife[i][leftAxis] + oldLife[i][rightAxis]
+            + oldLife[botAxis][leftAxis] + oldLife[botAxis][j] + oldLife[botAxis][rightAxis];
+
+        return numborOfNeighbor;
+    }
+
     function drawTheGame() {
         for (let i = 0; i < 10; i++) {
             for (let j = 0; j < 10; j++) {
